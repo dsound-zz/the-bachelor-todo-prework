@@ -46,15 +46,28 @@ def get_occupation(data, hometown)
         data_srch.each do |occupation_srch|
 
           if occupation_srch["hometown"] == hometown
-            occupation = occupation_srch["occupation"]
+              return occupation_srch["occupation"]
+
 
         end
     end
 end
-occupation
 end
 
 
 def get_average_age_for_season(data, season)
-  # code here
+
+collection = []
+age = 0
+contestants = 0
+
+        data[season].map do |season_data|
+
+         season_data.each do |e|
+         contestants += 1
+         age +=  (season_data["age"]).to_i
+
+end      # final = collection.inject { |a, i| (a + i)/collection.size }
+end
+return (age/contestants.to_f).round(0)
 end
